@@ -30,10 +30,13 @@ jobs:
           static_site_generator: next
 
       - name: Build with Next.js 🏗️
-        run: bun run build --no-lint
+        run: bun run build --no-lint && ls -lla
 
-      - name: Ensure out directory exists
-        run: mkdir -p out
+      # - name: Ensure out directory exists
+      #   run: mkdir -p out
+
+      - name: List
+        run: ls -lla
 
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
