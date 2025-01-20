@@ -1,28 +1,10 @@
-import "./globals.css"
-import { Inter } from "next/font/google"
-import Header from "./components/Header"
-import Footer from "./components/Footer"
-
-const inter = Inter({ subsets: ["latin"] })
-
-export const metadata = {
-  title: "Your Name - Portfolio",
-  description: "Personal portfolio showcasing my work and achievements",
+export default function Home() {
+	return (
+		<div className="container mx-auto px-4 py-8">
+			<h1 className="text-3xl font-bold mb-8">Welcome to My Portfolio!</h1>
+			<p className="text-lg">
+				This is a personal portfolio showcasing my work and achievements.
+			</p>
+		</div>
+	);
 }
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return (
-    <html lang="en">
-      <body className={`${inter.className} bg-[#2E1A47] text-white min-h-screen flex flex-col`}>
-        <Header />
-        <main className="flex-grow">{children}</main>
-        <Footer />
-      </body>
-    </html>
-  )
-}
-
