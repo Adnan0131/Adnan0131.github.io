@@ -1,8 +1,8 @@
 "use client"
 
-import Image from "next/image"
+import Image from "public/logo.jpeg"
 import React from "react"
-import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card"
+import { CardBody, CardContainer, CardItem } from "components/ui/3d-card.tsx"
 
 export function ThreeDCard() {
   return (
