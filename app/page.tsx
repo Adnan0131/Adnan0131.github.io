@@ -1,81 +1,42 @@
-'use client'
-
-export const dynamic = 'force-dynamic'
-import { useEffect, useRef, useState } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls, Sphere} from '@react-three/drei'
-import * as THREE from 'three'
-
-
-const FloatingElement = ({ position }: { position: [number, number, number] }) => {
-  const meshRef = useRef<THREE.Mesh>(null!)
-  useFrame((state) => {
-    meshRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime) * 0.1
-  })
-
-  return (
-    <mesh ref={meshRef} position={position}>
-      <sphereGeometry args={[0.1, 32, 32]} />
-      <meshStandardMaterial color={new THREE.Color().setHSL(Math.random(), 0.5, 0.5)} />
-    </mesh>
-  )
-}
-
-const ProfilePicture = () => {
-  const textureLoader = new THREE.TextureLoader()
-  const texture = textureLoader.load('/logo.webp')
-
-  return (
-    <Sphere args={[1, 32, 32]}>
-      <meshStandardMaterial map={texture} />
-    </Sphere>
-  )
-}
+import { ThreeDCard } from "@/components/ThreeDCard"
+import Link from "next/link"
 
 export default function Home() {
-  const [scrollY, setScrollY] = useState(0)
-
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   return (
-    <div className="min-h-screen">
-      <section className="py-20 px-4">
-        <div className="container mx-auto flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 mb-8 md:mb-0">
-            <h1 className="text-4xl font-bold mb-4">Welcome to My Portfolio</h1>
-            <p className="text-xl mb-6">I&apos;m Adnan Ahamed, a passionate developer and creative thinker.</p>
-            <a href="/contact" className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors">Get in Touch</a>
-          </div>
-          <div className="md:w-1/2 h-[400px]">
-            <Canvas>
-              <ambientLight intensity={0.5} />
-              <pointLight position={[10, 10, 10]} />
-              <ProfilePicture />
-              <FloatingElement position={[-1.5, 0, 0]} />
-              <FloatingElement position={[1.5, 0, 0]} />
-              <FloatingElement position={[0, 1.5, 0]} />
-              <FloatingElement position={[0, -1.5, 0]} />
-              <OrbitControls enableZoom={false} />
-            </Canvas>
-          </div>
+    <div className="container mx-auto px-4 py-8">
+      <div className="flex flex-col items-center mb-8">
+        <ThreeDCard />
+      </div>
+      <div className="mt-8">
+        <h1 className="text-3xl font-bold mb-4 text-[#FIC40F]">Welcome to My Portfolio</h1>
+        <p className="mb-4 text-[#9859B6]">
+          I'm a passionate professional with a diverse set of skills and interests. From academic achievements to
+          extracurricular activities, I strive for excellence in everything I do.
+        </p>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+        <div className="bg-[#5C4B8A] p-4 rounded-lg">
+          <h2 className="text-xl font-bold mb-2 text-[#FIC40F]">Extracurricular Activities</h2>
+          <p className="text-white">Explore my talents in singing, sports, art, and theatre.</p>
+          <Link href="/extracurricular" className="text-[#FIC40F] hover:underline">
+            Learn more
+          </Link>
         </div>
-      </section>
-      <section className="py-20 px-4 bg-gradient-to-r from-blue-100 to-purple-100" style={{ backgroundPositionY: `${scrollY * 0.5}px` }}>
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-center">My Skills</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {['JavaScript', 'React', 'Node.js', 'Python', 'HTML/CSS', 'Git', 'UI/UX Design', 'Database Management'].map((skill) => (
-              <div key={skill} className="bg-white p-4 rounded-lg shadow-md text-center">
-                {skill}
-              </div>
-            ))}
-          </div>
+        <div className="bg-[#5C4B8A] p-4 rounded-lg">
+          <h2 className="text-xl font-bold mb-2 text-[#FIC40F]">Academic Achievements</h2>
+          <p className="text-white">Discover my academic record and notable accomplishments.</p>
+          <Link href="/academic" className="text-[#FIC40F] hover:underline">
+            Learn more
+          </Link>
         </div>
-      </section>
+        <div className="bg-[#5C4B8A] p-4 rounded-lg">
+          <h2 className="text-xl font-bold mb-2 text-[#FIC40F]">Contact Me</h2>
+          <p className="text-white">Get in touch for collaborations or opportunities.</p>
+          <Link href="/contact" className="text-[#FIC40F] hover:underline">
+            Contact now
+          </Link>
+        </div>
+      </div>
     </div>
   )
 }

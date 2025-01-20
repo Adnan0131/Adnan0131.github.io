@@ -1,35 +1,17 @@
 "use client"
 
-import { useState } from "react"
+import { useState, type FormEvent } from "react"
 
 export default function Contact() {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
-  const [status, setStatus] = useState("")
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
-    setStatus("Sending...")
-
-    const res = await fetch("/api/send-email", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, email, message }),
-    })
-
-    const data = await res.json()
-
-    if (res.ok) {
-      setStatus("Message sent successfully!")
-      setName("")
-      setEmail("")
-      setMessage("")
-    } else {
-      setStatus("Failed to send message. Please try again.")
-    }
+    const subject = `New message from ${name}`
+    const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0AMessage: ${message}`
+    window.location.href = `mailto:adnan.ahamed3101@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`
   }
 
   return (
@@ -78,7 +60,6 @@ export default function Contact() {
         <button type="submit" className="bg-[#FIC40F] text-black px-4 py-2 rounded hover:bg-[#9859B6]">
           Send Message
         </button>
-        {status && <p className="mt-4 text-center">{status}</p>}
       </form>
     </div>
   )

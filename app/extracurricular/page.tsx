@@ -1,24 +1,24 @@
-import Image from "next/image"
+import { ActivityCard } from "@/components/ActivityCard"
 
 const activities = [
   {
     title: "Singer",
-    description: "Performed at various events and competitions, winning [mention any awards].",
+    description: "Performed at various events and competitions, winning several awards.",
     image: "/singer.jpg",
   },
   {
     title: "Sports Person",
-    description: "Participated in [mention sports] at [mention level], achieving [mention achievements].",
+    description: "Participated in basketball at the state level, achieving multiple victories.",
     image: "/sports.jpg",
   },
   {
     title: "Artist",
-    description: "Created and exhibited artworks in [mention mediums], featured in [mention exhibitions if any].",
+    description: "Created and exhibited artworks in oil painting, featured in local galleries.",
     image: "/artist.jpg",
   },
   {
     title: "Theatre Artist",
-    description: "Performed in [mention plays], taking on roles such as [mention significant roles].",
+    description: "Performed in several plays, taking on lead roles in school productions.",
     image: "/theatre.jpg",
   },
 ]
@@ -26,22 +26,10 @@ const activities = [
 export default function Extracurricular() {
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-8">Extracurricular Activities</h1>
+      <h1 className="text-3xl font-bold mb-8 text-[#FIC40F]">Extracurricular Activities</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {activities.map((activity, index) => (
-          <div key={index} className="bg-[#5C4B8A] p-4 rounded-lg flex flex-col md:flex-row items-center">
-            <Image
-              src={activity.image || "/placeholder.svg"}
-              alt={activity.title}
-              width={200}
-              height={200}
-              className="rounded-lg mb-4 md:mb-0 md:mr-4"
-            />
-            <div>
-              <h2 className="text-xl font-bold mb-2">{activity.title}</h2>
-              <p>{activity.description}</p>
-            </div>
-          </div>
+          <ActivityCard key={index} {...activity} />
         ))}
       </div>
     </div>

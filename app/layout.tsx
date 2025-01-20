@@ -1,14 +1,13 @@
-import './globals.css'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import Header from './components/Header'
-import Footer from './components/Footer'
+import "./globals.css"
+import { Libre_Bodoni } from "next/font/google"
+import Header from "./components/Header"
+import Footer from "./components/Footer"
 
-const inter = Inter({ subsets: ['latin'] })
+const bodoni = Libre_Bodoni({ subsets: ["latin"] })
 
-export const metadata: Metadata = {
-  title: 'Adnan Ahamed - Portfolio',
-  description: 'Personal portfolio of Adnan Ahamed',
+export const metadata = {
+  title: "Portfolio",
+  description: "Personal portfolio showcasing my work and achievements",
 }
 
 export default function RootLayout({
@@ -18,9 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-gray-50 text-gray-900`}>
+      <body className={`${bodoni.className} bg-[#2E1A47] text-white min-h-screen flex flex-col`}>
         <Header />
-        <main className="min-h-screen">{children}</main>
+        <main className="flex-grow">{children}</main>
         <Footer />
       </body>
     </html>

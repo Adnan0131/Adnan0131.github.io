@@ -1,23 +1,35 @@
-import Link from 'next/link'
-import { Instagram, Mail } from 'lucide-react'
+import { Instagram, Linkedin } from "lucide-react"
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-100 py-8">
-      <div className="container mx-auto px-4 flex flex-col items-center">
-        <div className="flex space-x-4 mb-4">
-          <Link href="https://www.instagram.com/_a_d_n_a_n_8?igsh=MzhnMmpzdTcyN3Ru" target="_blank" rel="noopener noreferrer">
-            <Instagram className="text-gray-600 hover:text-gray-800" />
-          </Link>
-          <Link href="mailto:Adnan.ahamed3101@gmail.com">
-            <Mail className="text-gray-600 hover:text-gray-800" />
-          </Link>
+    <footer className="bg-[#5C4B8A] p-4 mt-8">
+      <div className="container mx-auto flex justify-between items-center">
+        <div>
+          <p>&copy; 2023 All rights reserved.</p>
         </div>
-        <p className="text-sm text-gray-600">&copy; {new Date().getFullYear()} Adnan Ahamed. All rights reserved.</p>
+        <div className="flex space-x-4">
+          <a
+            href="https://instagram.com/yourusername"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#FIC40F]"
+          >
+            <Instagram />
+          </a>
+          <a
+            href="https://linkedin.com/in/yourusername"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#FIC40F]"
+          >
+            <Linkedin />
+          </a>
+        </div>
       </div>
     </footer>
   )
 }
 
 export default Footer
+
 
