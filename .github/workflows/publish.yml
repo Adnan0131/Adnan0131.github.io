@@ -32,6 +32,9 @@ jobs:
       - name: Build with Next.js 🏗️
         run: bun run build --no-lint
 
+      - name: Ensure out directory exists
+        run: mkdir -p out
+
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
         with:
