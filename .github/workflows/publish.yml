@@ -31,7 +31,6 @@ jobs:
 
       - name: Build with Next.js 🏗️
         run: |
-          rm next.config.js
           bun run build --no-lint
           ls -lla
 

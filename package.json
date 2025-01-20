@@ -2,6 +2,7 @@
   "name": "adnan-portfolio",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -10,15 +11,15 @@
   },
   "dependencies": {
     "@react-three/drei": "^9.121.2",
-    "@react-three/fiber": "^9.0.0-alpha.8",
+    "@react-three/fiber": "^8.17.12",
     "@tabler/icons-react": "^3.28.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.0.0",
     "lucide-react": "^0.473.0",
-    "next": "15.1.5",
+    "next": "^14.2.20",
     "nodemailer": "^6.9.16",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^18",
+    "react-dom": "^18",
     "tailwind-merge": "^2.6.0",
     "three": "^0.172.0"
   },
