@@ -30,7 +30,10 @@ jobs:
           static_site_generator: next
 
       - name: Build with Next.js 🏗️
-        run: bun run build --no-lint && ls -lla
+        run: |
+          rm next.config.js
+          bun run build --no-lint
+          ls -lla
 
       # - name: Ensure out directory exists
       #   run: mkdir -p out
