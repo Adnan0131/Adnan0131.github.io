@@ -1,4 +1,4 @@
-import { ThreeDCard } from "@/components/ThreeDCard"
+import { ThreeDCard } from "@/app/components/ThreeDCard"
 import Link from "next/link"
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
       <div className="mt-8">
         <h1 className="text-3xl font-bold mb-4 text-[#FIC40F]">Welcome to My Portfolio</h1>
         <p className="mb-4 text-[#9859B6]">
-          I'm a passionate professional with a diverse set of skills and interests. From academic achievements to
+          I&apos;m a passionate professional with a diverse set of skills and interests. From academic achievements to
           extracurricular activities, I strive for excellence in everything I do.
         </p>
       </div>
