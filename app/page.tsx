@@ -1,4 +1,4 @@
-import { ThreeDCard } from "@/app/components/ThreeDCard"
+import { ThreeDCard } from "@/components/ThreeDCard"
 import Link from "next/link"
 
 export default function Home() {
